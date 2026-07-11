@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { HoverCircleButton } from "./hover-circle-button";
 import { ScrollTextReveal } from "./scroll-text-reveal";
+import { Eyebrow } from "./typography";
 
 type Service = {
   title: string;
@@ -263,10 +264,10 @@ export function ServicesSection() {
       className="relative px-6 py-20 sm:px-10 lg:h-[var(--services-scroll-height)] lg:px-8 lg:py-0"
       style={sectionStyle}
     >
-      <div className="mx-auto flex w-full max-w-[1680px] flex-col lg:hidden">
-        <p className="text-center text-xs font-medium uppercase text-black">
+      <div className="mx-auto flex w-full flex-col lg:hidden">
+        <Eyebrow align="center" className="mb-0">
           Services
-        </p>
+        </Eyebrow>
 
         <div className="mt-10 flex flex-col gap-10">
           {services.map((service, index) => (
@@ -297,10 +298,13 @@ export function ServicesSection() {
         </div>
       </div>
 
-      <div className="hidden lg:sticky lg:top-0 lg:mx-auto lg:block lg:min-h-screen lg:w-full lg:max-w-[1680px] lg:overflow-visible">
-        <p className="md:absolute left-0 right-0 top-20 z-0 text-center text-xs font-medium uppercase text-black lg:top-12">
+      <div className="hidden lg:sticky lg:top-0 lg:mx-auto lg:block lg:min-h-screen lg:w-full lg:overflow-visible">
+        <Eyebrow
+          align="center"
+          className="md:absolute left-0 right-0 top-20 z-0 mb-0 lg:top-12"
+        >
           Services
-        </p>
+        </Eyebrow>
 
         <div className="pointer-events-none absolute top-1/2 left-0 right-0 -translate-y-1/2 h-auto w-[50%] aspect-square mx-auto">
           <div
@@ -314,7 +318,7 @@ export function ServicesSection() {
           ></div>
         </div>
 
-        <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex items-center justify-center h-auto w-[50%] aspect-square mx-auto rounded-full border border-[#D9D9D9]/80 bg-background">
+        <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex items-center justify-center h-auto lg:w-[60%] xl:w-[50%] 2xl:w-[45%] aspect-square mx-auto rounded-full border border-[#D9D9D9]/80 bg-background">
           <div className="absolute bottom-0 w-auto h-2/3 aspect-square rounded-full border border-[#D9D9D9]/80"></div>
           <div className="absolute top-0 w-px h-full border-r border-dashed border-[#D9D9D9]"></div>
           <div className="absolute -top-2 h-4 w-4 rounded-full border border-[#D9D9D9] bg-[#F6F6F6]"></div>
@@ -322,7 +326,7 @@ export function ServicesSection() {
           <div className="absolute top-[20%] right-[8%] h-4 w-4 rounded-full border border-[#D9D9D9] bg-[#F6F6F6]"></div>
         </div>
 
-        <div className="grid min-h-screen w-full items-center gap-8 py-24 lg:grid-cols-[0.8fr_1.4fr_0.8fr] lg:py-32">
+        <div className="grid min-h-screen w-full items-center gap-8 py-24 lg:grid-cols-[0.8fr_1.4fr_0.8fr] lg:py-32 z-10 relative">
           <div className="flex flex-col items-start gap-3">
             {services.map((service, index) => {
               const isActive = index === activeIndex;
@@ -333,7 +337,7 @@ export function ServicesSection() {
                   key={service.title}
                   type="button"
                   onClick={() => scrollToService(index)}
-                  className={`block text-left md:text-[1.4rem] xl:text-[1.55rem] 2xl:text-[1.7rem] font-medium leading-tight transition-colors duration-300 ${
+                  className={`block text-left md:text-[1.4rem] xl:text-[1.6rem] 2xl:text-[1.8rem] font-medium leading-tight transition-colors duration-300 ${
                     isActive
                       ? "text-black"
                       : isPassed

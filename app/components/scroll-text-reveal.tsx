@@ -174,6 +174,15 @@ export function ScrollTextReveal({
     const revealed = [0, 0, 0];
     const edge = [edgeRed, edgeGreen, edgeBlue];
     const muted = [189, 189, 189];
+
+    if (resolvedProgress <= 0.01) {
+      return `rgb(${muted.join(" ")})`;
+    }
+
+    if (resolvedProgress >= 0.99) {
+      return `rgb(${revealed.join(" ")})`;
+    }
+
     const revealPosition = Math.min(Math.max(resolvedProgress * 1.18 - 0.09, 0), 1);
     const edgeSize = Math.min(Math.max(edgeWidth / 100, 0.03), 0.45);
     const edgeStart = revealPosition - edgeSize;

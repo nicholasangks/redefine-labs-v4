@@ -143,8 +143,8 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="px-4 md:px-8 py-16 md:py-36">
-        <div className="mx-auto max-w-2xl text-center">
+      <section className="px-4 md:px-8 py-16 md:py-36 2xl:py-56">
+        <div className="mx-auto max-w-2xl 2xl:max-w-4xl text-center">
           <Eyebrow align="center">About</Eyebrow>
           <Heading size="section" align="center">
             <ScrollTextReveal>

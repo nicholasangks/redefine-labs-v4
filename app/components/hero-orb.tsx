@@ -96,7 +96,7 @@ export function HeroOrb() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       // className="relative mx-auto flex w-full max-w-[380px] items-center justify-center"
-      className="relative mx-auto flex w-[70%] md:w-[clamp(12rem,26.5vw,26rem)] items-center justify-center"
+      className="relative mx-auto flex w-[70%] md:w-[clamp(12rem,26.5vw,27rem)] items-center justify-center"
     >
       <div className="absolute h-px w-[calc(100%+5rem)] md:w-[calc(100%+10rem)] -rotate-45 bg-[#D5D5D5]"></div>
 
