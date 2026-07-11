@@ -142,7 +142,7 @@ export function ServicesSection() {
   const frameRef = useRef<number | null>(null);
   const activeIndexRef = useRef(0);
   const activeService = services[activeIndex];
-  const cardGap = 250;
+  const cardGap = 230;
   const blurColor = blurColors[activeIndex] ?? blurColors[0];
   const blurRotation = activeIndex * (360 / services.length);
   const blurOrbitRadius = 35;
