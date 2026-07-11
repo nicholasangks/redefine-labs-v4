@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 
 import { HoverCircleButton } from "./hover-circle-button";
@@ -78,6 +79,60 @@ const blurColors = [
   "#FFD7A6",
 ];
 
+function ServiceMedia({
+  service,
+  index,
+  websiteFrameIndex,
+  className = "",
+}: {
+  service: Service;
+  index: number;
+  websiteFrameIndex: number;
+  className?: string;
+}) {
+  const frames = service.images ?? (service.image ? [service.image] : []);
+  const currentFrameIndex =
+    index === websiteServiceIndex ? websiteFrameIndex : 0;
+  const mediaPadding = service.mediaPadding ?? "0";
+  const mediaBackground = service.mediaBackground ?? "#ffffff";
+  const mediaFitClass =
+    service.mediaFit === "contain" ? "object-contain" : "object-cover";
+
+  return (
+    <div
+      className={`relative h-auto aspect-[16/10] overflow-hidden rounded-lg ${className}`}
+      style={{ backgroundColor: mediaBackground }}
+    >
+      {service.video ? (
+        <div className="h-full w-full" style={{ padding: mediaPadding }}>
+          <video
+            src={service.video}
+            poster={service.image}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className={`h-full w-full ${mediaFitClass}`}
+          />
+        </div>
+      ) : (
+        frames.map((frame, frameIndex) => (
+          <img
+            key={frame}
+            src={frame}
+            alt={`${service.title} service visual ${frameIndex + 1}`}
+            className={`absolute inset-0 h-full w-full ${mediaFitClass} ${
+              frameIndex === currentFrameIndex ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ padding: mediaPadding }}
+          />
+        ))
+      )}
+    </div>
+  );
+}
+
 export function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [virtualIndex, setVirtualIndex] = useState(0);
@@ -104,6 +159,9 @@ export function ServicesSection() {
           Math.max((virtualIndex - revealStart) / (revealEnd - revealStart), 0),
           1,
         );
+  const sectionStyle = {
+    "--services-scroll-height": `${100 + (services.length - 1) * 70}vh`,
+  } as CSSProperties;
 
   useEffect(() => {
     if (activeIndex !== websiteServiceIndex || websiteServiceFrames.length < 2) {
@@ -202,11 +260,45 @@ export function ServicesSection() {
     <section
       ref={sectionRef}
       id="services"
-      className="relative px-6 sm:px-10 lg:px-8"
-      style={{ height: `${100 + (services.length - 1) * 70}vh` }}
+      className="relative px-6 py-20 sm:px-10 lg:h-[var(--services-scroll-height)] lg:px-8 lg:py-0"
+      style={sectionStyle}
     >
-      <div className="sticky top-0 mx-auto min-h-screen w-full max-w-[1680px] overflow-visible">
-        <p className="absolute left-0 right-0 top-20 z-0 text-center text-xs font-medium uppercase text-black lg:top-12">
+      <div className="mx-auto flex w-full max-w-[1680px] flex-col lg:hidden">
+        <p className="text-center text-xs font-medium uppercase text-black">
+          Services
+        </p>
+
+        <div className="mt-10 flex flex-col gap-10">
+          {services.map((service, index) => (
+            <article key={service.title} className="flex flex-col gap-3">
+              <ServiceMedia
+                service={service}
+                index={index}
+                websiteFrameIndex={websiteFrameIndex}
+                className="w-full mb-1"
+              />
+
+              {/* <h2 className="text-[clamp(2rem,10vw,3.2rem)] font-medium leading-none"> */}
+              <h2 className="text-[1.3rem] font-medium leading-none">
+                {service.title}
+              </h2>
+
+              <div>
+                <p>{service.description}</p>
+                <HoverCircleButton
+                  href="mailto:hello@redefinelabs.com"
+                  className="mt-3"
+                >
+                  Explore more
+                </HoverCircleButton>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div className="hidden lg:sticky lg:top-0 lg:mx-auto lg:block lg:min-h-screen lg:w-full lg:max-w-[1680px] lg:overflow-visible">
+        <p className="md:absolute left-0 right-0 top-20 z-0 text-center text-xs font-medium uppercase text-black lg:top-12">
           Services
         </p>
 
@@ -224,7 +316,7 @@ export function ServicesSection() {
 
         <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex items-center justify-center h-auto w-[50%] aspect-square mx-auto rounded-full border border-[#D9D9D9]/80 bg-background">
           <div className="absolute bottom-0 w-auto h-2/3 aspect-square rounded-full border border-[#D9D9D9]/80"></div>
-          <div className="absolute top-0 w-px h-full bg-[#D9D9D9]"></div>
+          <div className="absolute top-0 w-px h-full border-r border-dashed border-[#D9D9D9]"></div>
           <div className="absolute -top-2 h-4 w-4 rounded-full border border-[#D9D9D9] bg-[#F6F6F6]"></div>
           <div className="absolute top-[20%] left-[8%] h-4 w-4 rounded-full border border-[#D9D9D9] bg-[#F6F6F6]"></div>
           <div className="absolute top-[20%] right-[8%] h-4 w-4 rounded-full border border-[#D9D9D9] bg-[#F6F6F6]"></div>
@@ -241,7 +333,7 @@ export function ServicesSection() {
                   key={service.title}
                   type="button"
                   onClick={() => scrollToService(index)}
-                  className={`block text-left text-[clamp(1.6rem,1.7vw,2.35rem)] font-medium leading-tight transition-colors duration-300 ${
+                  className={`block text-left md:text-[1.4rem] xl:text-[1.55rem] 2xl:text-[1.7rem] font-medium leading-tight transition-colors duration-300 ${
                     isActive
                       ? "text-black"
                       : isPassed
@@ -275,52 +367,18 @@ export function ServicesSection() {
               }}
             >
               {services.map((service, index) => {
-                const frames = service.images ?? (service.image ? [service.image] : []);
-                const currentFrameIndex =
-                  index === websiteServiceIndex ? websiteFrameIndex : 0;
-                const mediaPadding = service.mediaPadding ?? "0";
-                const mediaBackground = service.mediaBackground ?? "#ffffff";
-                const mediaFitClass =
-                  service.mediaFit === "contain" ? "object-contain" : "object-cover";
                 const isLeftAligned = index % 2 === 0;
 
                 return (
-                  <div
+                  <ServiceMedia
                     key={service.title}
-                    className={`relative h-auto w-[85%] aspect-[16/10] flex-none overflow-hidden rounded-lg ${
+                    service={service}
+                    index={index}
+                    websiteFrameIndex={websiteFrameIndex}
+                    className={`w-[85%] flex-none ${
                       isLeftAligned ? "self-start" : "self-end"
                     }`}
-                    style={{ backgroundColor: mediaBackground }}
-                  >
-                    {service.video ? (
-                      <div className="h-full w-full" style={{ padding: mediaPadding }}>
-                        <video
-                          src={service.video}
-                          poster={service.image}
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          preload="metadata"
-                          className={`h-full w-full ${mediaFitClass}`}
-                        />
-                      </div>
-                    ) : (
-                      frames.map((frame, frameIndex) => (
-                        <img
-                          key={frame}
-                          src={frame}
-                          alt={`${service.title} service visual ${frameIndex + 1}`}
-                          className={`absolute inset-0 h-full w-full ${mediaFitClass} ${
-                            frameIndex === currentFrameIndex
-                              ? "opacity-100"
-                              : "opacity-0"
-                          }`}
-                          style={{ padding: mediaPadding }}
-                        />
-                      ))
-                    )}
-                  </div>
+                  />
                 );
               })}
             </div>

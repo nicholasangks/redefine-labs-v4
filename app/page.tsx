@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="fixed top-6 left-0 z-50 w-full px-6 sm:px-10 lg:px-12">
+      <header className="fixed top-6 left-0 z-50 w-full px-4 md:px-8 2xl:px-12">
         <div className="mx-auto flex w-full max-w-[1920px] items-center justify-between gap-6">
           <div className="flex items-center gap-8">
             <Link href="/" className="text-xl font-medium text-black">
