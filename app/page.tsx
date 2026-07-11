@@ -89,7 +89,7 @@ export default function Home() {
             className="px-4"
           >
             Start a project
-          </HoverCircleButton>
+          </HoverCircleButton> 
         </div>
       </header>
 
