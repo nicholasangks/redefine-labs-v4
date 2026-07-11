@@ -60,7 +60,7 @@ export function Eyebrow({
 
   return (
     <Component
-      className={`mb-3 text-[10px] 2xl:text-[12px] uppercase text-black ${alignmentClasses[align]} ${className}`}
+      className={`mb-3 text-[10px] 2xl:text-[11px] uppercase text-black ${alignmentClasses[align]} ${className}`}
     >
       {children}
     </Component>

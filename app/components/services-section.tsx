@@ -261,7 +261,7 @@ export function ServicesSection() {
     <section
       ref={sectionRef}
       id="services"
-      className="relative px-6 py-20 sm:px-10 lg:h-[var(--services-scroll-height)] lg:px-8 lg:py-0"
+      className="relative py-20 lg:h-[var(--services-scroll-height)] px-4 md:px-8 2xl:px-12 lg:py-0"
       style={sectionStyle}
     >
       <div className="mx-auto flex w-full flex-col lg:hidden">
@@ -276,7 +276,7 @@ export function ServicesSection() {
                 service={service}
                 index={index}
                 websiteFrameIndex={websiteFrameIndex}
-                className="w-full mb-1"
+                className="w-full mb-2"
               />
 
               {/* <h2 className="text-[clamp(2rem,10vw,3.2rem)] font-medium leading-none"> */}
@@ -301,7 +301,7 @@ export function ServicesSection() {
       <div className="hidden lg:sticky lg:top-0 lg:mx-auto lg:block lg:min-h-screen lg:w-full lg:overflow-visible">
         <Eyebrow
           align="center"
-          className="md:absolute left-0 right-0 top-20 z-0 mb-0 lg:top-12"
+          className="md:absolute left-0 right-0 top-20 z-0 mb-0 lg:top-12 2xl:top-8"
         >
           Services
         </Eyebrow>
