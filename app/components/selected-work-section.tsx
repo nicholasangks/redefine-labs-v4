@@ -23,7 +23,7 @@ export function SelectedWorkSection() {
   return (
     <section
       id="works"
-      className="mx-auto w-full py-16 md:py-36 2xl:py-56 px-4 md:px-8 2xl:px-12"
+      className="mx-auto w-full pb-16 md:pb-36 2xl:pb-56 px-4 md:px-8 2xl:px-12"
     >
       <div className="mb-4 md:mb-8">
         <Eyebrow className="mb-2">Selected Work</Eyebrow>

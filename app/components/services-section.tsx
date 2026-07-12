@@ -143,6 +143,7 @@ export function ServicesSection() {
   const activeIndexRef = useRef(0);
   const activeService = services[activeIndex];
   const cardGap = 230;
+  const mediaSizeRatio = 0.74;
   const blurColor = blurColors[activeIndex] ?? blurColors[0];
   const blurRotation = activeIndex * (360 / services.length);
   const blurOrbitRadius = 35;
@@ -151,17 +152,12 @@ export function ServicesSection() {
     top: `${50 + Math.sin(warmAngle) * blurOrbitRadius}%`,
     left: `${50 + Math.cos(warmAngle) * blurOrbitRadius}%`,
   };
-  const revealStart = Math.max(activeIndex - 0.22, 0);
-  const revealEnd = Math.min(activeIndex + 0.22, services.length - 1);
-  const activeTitleProgress =
-    revealEnd === revealStart
-      ? 1
-      : Math.min(
-          Math.max((virtualIndex - revealStart) / (revealEnd - revealStart), 0),
-          1,
-        );
+  const activeTitleProgress = Math.min(
+    Math.max(virtualIndex - activeIndex, 0),
+    1,
+  );
   const sectionStyle = {
-    "--services-scroll-height": `${100 + (services.length - 1) * 70}vh`,
+    "--services-scroll-height": `${100 + services.length * 70}vh`,
   } as CSSProperties;
 
   useEffect(() => {
@@ -192,7 +188,7 @@ export function ServicesSection() {
       const scrollableDistance = section.offsetHeight - window.innerHeight;
 
       if (scrollableDistance <= 0) {
-        setVirtualIndex(services.length - 1);
+        setVirtualIndex(services.length);
         if (activeIndexRef.current !== services.length - 1) {
           activeIndexRef.current = services.length - 1;
           setActiveIndex(services.length - 1);
@@ -205,8 +201,13 @@ export function ServicesSection() {
         1,
       );
 
-      setVirtualIndex(nextProgress * (services.length - 1));
-      const nextActiveIndex = Math.round(nextProgress * (services.length - 1));
+      const nextVirtualIndex = nextProgress * services.length;
+      const nextActiveIndex = Math.min(
+        Math.floor(nextVirtualIndex),
+        services.length - 1,
+      );
+
+      setVirtualIndex(nextVirtualIndex);
 
       if (nextActiveIndex !== activeIndexRef.current) {
         activeIndexRef.current = nextActiveIndex;
@@ -248,8 +249,9 @@ export function ServicesSection() {
 
     const rect = section.getBoundingClientRect();
     const scrollableDistance = section.offsetHeight - window.innerHeight;
-    const targetProgress = index / (services.length - 1);
-    const targetTop = window.scrollY + rect.top + scrollableDistance * targetProgress;
+    const targetProgress = index / services.length;
+    const targetTop =
+      window.scrollY + rect.top + scrollableDistance * targetProgress;
 
     window.scrollTo({
       top: targetTop,
@@ -366,8 +368,11 @@ export function ServicesSection() {
               className="absolute inset-0 flex flex-col will-change-transform"
               style={{
                 gap: `${cardGap}px`,
-                transform: `translateY(calc(${-virtualIndex * 100}% - ${virtualIndex * cardGap
-                  }px))`,
+                transform: `translateY(calc(100% - ${
+                  virtualIndex * mediaSizeRatio * 100
+                }% - ${
+                  virtualIndex * cardGap
+                }px))`,
               }}
             >
               {services.map((service, index) => {
