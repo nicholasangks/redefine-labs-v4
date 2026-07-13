@@ -1,29 +1,50 @@
 "use client";
 
 import { useState } from "react";
+import { Minus, Plus } from "lucide-react";
 import { Section } from "./section";
 import { Eyebrow, Heading } from "./typography";
 
 const faqs = [
   {
-    question: "What kind of projects do you take on?",
+    question: "How long does custom software development take?",
     answer:
-      "We work on software products, dashboards, websites, automation systems, and AI workflows for founders and growing teams.",
+      "Most custom software projects take more than two weeks, depending on the project scope, complexity, and requirements. We’ll provide a clear timeline after understanding your business needs.",
   },
   {
-    question: "Can you work with an existing product?",
+    question: "Do you develop AI solutions tailored to our business?",
     answer:
-      "Yes. We can improve an existing interface, rebuild key workflows, add automation, or help turn a messy internal process into a focused product.",
+      "Yes. Every AI solution is designed around your business processes, integrating seamlessly with your existing systems and workflows.",
   },
   {
-    question: "Do you only handle design or also development?",
+    question: "Do you work with SMEs and enterprise businesses?",
     answer:
-      "Both. We can move from product strategy and interface design into implementation, integration, and launch.",
+      "Yes. We work with businesses of all sizes, from growing SMEs to established enterprises, delivering solutions tailored to their unique workflows, operations, and goals.",
   },
   {
-    question: "How does a project usually start?",
+    question: "Do you offer monthly retainer packages?",
     answer:
-      "We start with a short conversation to understand the problem, constraints, timeline, and what a useful first version should include.",
+      "Yes. We offer flexible monthly retainer packages starting from RM8,000, providing ongoing design, development, AI implementation, maintenance, and continuous product improvements.",
+  },
+  {
+    question: "Can you integrate with our existing systems?",
+    answer:
+      "Yes. We begin by understanding your existing system architecture before designing a seamless integration with your software, APIs, or third-party platforms.",
+  },
+  {
+    question: "Do you provide ongoing support and maintenance?",
+    answer:
+      "Yes. We continue to support and maintain your software after launch, ensuring it remains secure, reliable, and ready to evolve with your business.",
+  },
+  {
+    question: "Can you redesign or improve our existing software or website?",
+    answer:
+      "Yes. We review your existing software or website, identify areas for improvement, and redesign the experience with a stronger focus on usability, performance, and long-term scalability.",
+  },
+  {
+    question: "What industries do you work with?",
+    answer:
+      "We work across a range of industries, including energy, electricity, finance, manufacturing, and more, adapting every solution to the unique needs of each business.",
   },
 ];
 
@@ -54,11 +75,20 @@ export function FaqSection() {
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
                   className="flex w-full items-center justify-between text-left"
                 >
-                  <Heading as="span" size="faq" className="text-black">
-                    {faq.question}
-                  </Heading>
-                  <span className="mt-1 text-2xl leading-none text-black/45">
-                    {isOpen ? "-" : "+"}
+                  <div className="flex items-start gap-3">
+                    <span className="pt-1 text-[13px] uppercase text-muted-foreground">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <Heading as="span" size="faq" className="text-black">
+                      {faq.question}
+                    </Heading>
+                  </div>
+                  <span className="flex h-8 w-8 items-center justify-center text-muted-foreground">
+                    {isOpen ? (
+                      <Minus className="h-4 w-4" strokeWidth={1.75} />
+                    ) : (
+                      <Plus className="h-4 w-4" strokeWidth={1.75} />
+                    )}
                   </span>
                 </button>
 

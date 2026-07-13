@@ -39,13 +39,12 @@ export function SelectedWorkSection() {
                 sizes="(max-width: 1024px) 100vw, 33vw"
                 className="object-contain transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute bottom-0 left-3 flex">
-                <Eyebrow
-                  as="span"
-                  className="flex h-9 items-center rounded-full bg-black/20 backdrop-blur px-3 text-white"
+              <div className="absolute bottom-3 left-3 flex">
+                <div
+                  className="flex h-9 items-center rounded-full bg-black/20 backdrop-blur px-3 text-white text-[0.9rem]"
                 >
                   {work.title}
-                </Eyebrow>
+                </div>
               </div>
             </div>
           </article>
