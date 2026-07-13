@@ -10,7 +10,7 @@ type SectionProps = {
 };
 
 const spacingClasses: Record<SectionSpacing, string> = {
-  default: "py-10 md:py-32",
+  default: "py-10 md:py-34",
   none: "py-0",
 };
 
