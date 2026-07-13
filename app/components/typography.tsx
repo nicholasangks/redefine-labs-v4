@@ -24,7 +24,7 @@ const headingSizeClasses: Record<HeadingSize, string> = {
   hero: "text-[1.95rem] md:text-[2.4rem] xl:text-[2.85rem] 2xl:text-[3rem] leading-[1]",
   section: "text-[1.6rem] md:text-[1.95rem] xl:text-[2.2rem] 2xl:text-[2.45rem] leading-[1.2]",
   card: "text-[clamp(1.5rem,1.8vw,2.35rem)] leading-tight",
-  faq: "text-[clamp(1.15rem,1.2vw,1.8rem)] leading-tight",
+  faq: "text-[1.3rem] leading-tight",
 };
 
 const alignmentClasses: Record<HeadingAlign, string> = {

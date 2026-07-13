@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Section } from "./section";
 import { Eyebrow, Heading } from "./typography";
 
 const works = [
@@ -21,10 +22,7 @@ const works = [
 
 export function SelectedWorkSection() {
   return (
-    <section
-      id="works"
-      className="mx-auto w-full pb-16 md:pb-36 2xl:pb-56 px-4 md:px-8 2xl:px-12"
-    >
+    <Section id="works" spacing="default" className="mx-auto">
       <div className="mb-4 md:mb-8">
         <Eyebrow className="mb-2">Selected Work</Eyebrow>
         <Heading size="section">Work built with focus.</Heading>
@@ -53,6 +51,6 @@ export function SelectedWorkSection() {
           </article>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

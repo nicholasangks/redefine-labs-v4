@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Section } from "./section";
 import { Eyebrow, Heading } from "./typography";
 
 const faqs = [
@@ -30,19 +31,16 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section
-      id="faq"
-      className="mx-auto w-full px-6 sm:px-10 lg:px-8 py-16 md:py-36 2xl:py-56"
-    >
-      <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
-        <div>
+    <Section id="faq" spacing="default" className="mx-auto">
+      <div className="grid gap-4 lg:gap-0 lg:grid-cols-[0.8fr_1.2fr] py-6 md:py-0 border-y border-black/15">
+        <div className="md:p-8">
           <Eyebrow>FAQ</Eyebrow>
           <Heading size="section" className="max-w-lg">
             More questions? Contact us if you need further information
           </Heading>
         </div>
 
-        <div className="divide-y divide-black/15 border-t border-black/15">
+        <div className="divide-y divide-border md:border-l md:border-border md:p-8">
           {faqs.map((faq, index) => {
             const isOpen = index === openIndex;
             const answerId = `faq-answer-${index}`;
@@ -72,7 +70,7 @@ export function FaqSection() {
                 >
                   <div className="min-h-0">
                     <div className="">
-                      <p className="mt-3 max-w-xl text-[clamp(.95rem,0.9vw,1.15rem)] leading-snug text-black/65">
+                      <p className="mt-3 max-w-xl text-black/65">
                         {faq.answer}
                       </p>
                     </div>
@@ -83,6 +81,6 @@ export function FaqSection() {
           })}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

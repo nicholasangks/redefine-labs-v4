@@ -303,12 +303,12 @@ export function ServicesSection() {
       <div className="hidden lg:sticky lg:top-0 lg:mx-auto lg:block lg:min-h-screen lg:w-full lg:overflow-visible">
         <Eyebrow
           align="center"
-          className="md:absolute left-0 right-0 top-20 z-0 mb-0 lg:top-12 2xl:top-8"
+          className="md:absolute left-0 right-0 top-20 z-0 mb-0 lg:top-12 2xl:top-10"
         >
           Services
         </Eyebrow>
 
-        <div className="pointer-events-none absolute top-1/2 left-0 right-0 -translate-y-1/2 h-auto w-[50%] aspect-square mx-auto">
+        <div className="pointer-events-none absolute top-1/2 left-0 right-0 -translate-y-1/2 h-auto w-[50%]  max-w-[800px] aspect-square mx-auto">
           <div
             className="absolute h-[36%] w-[36%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[60px] transition-all duration-700 ease-out"
             style={{
@@ -320,7 +320,7 @@ export function ServicesSection() {
           ></div>
         </div>
 
-        <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex items-center justify-center h-auto lg:w-[60%] xl:w-[50%] 2xl:w-[45%] aspect-square mx-auto rounded-full border border-[#D9D9D9]/80 bg-background">
+        <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex items-center justify-center h-auto lg:w-[60%] xl:w-[50%] 2xl:w-[45%] max-w-[750px] aspect-square mx-auto rounded-full border border-[#D9D9D9]/80 bg-background">
           <div className="absolute bottom-0 w-auto h-2/3 aspect-square rounded-full border border-[#D9D9D9]/80"></div>
           <div className="absolute top-0 w-px h-full border-r border-dashed border-[#D9D9D9]"></div>
           <div className="absolute -top-2 h-4 w-4 rounded-full border border-[#D9D9D9] bg-[#F6F6F6]"></div>

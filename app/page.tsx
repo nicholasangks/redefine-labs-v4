@@ -4,6 +4,7 @@ import { FaqSection } from "./components/faq-section";
 import { HeroOrb } from "./components/hero-orb";
 import { HoverCircleButton } from "./components/hover-circle-button";
 import { ScrollTextReveal } from "./components/scroll-text-reveal";
+import { Section } from "./components/section";
 import { Eyebrow, Heading } from "./components/typography";
 import { SelectedWorkSection } from "./components/selected-work-section";
 import { ServicesSection } from "./components/services-section";
@@ -93,7 +94,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="mx-auto flex min-h-screen w-full max-w-[1920px] flex-col pt-20 pb-16 md:pt-22 md:pb-4 px-4 md:px-8 2xl:px-12">
+      <section className="mx-auto flex min-h-screen w-full flex-col pt-20 pb-16 md:pt-22 md:pb-4 px-4 md:px-8 2xl:px-12">
         <div className="grid flex-1 items-center gap-0 md:gap-12 md:py-12 md:grid-cols-[1fr_1fr_1fr] lg:py-0">
           <div className="order-2 flex flex-col items-center md:items-start gap-4 md:order-none 2xl:pr-20">
             <Heading as="h1" size="hero" className="!text-center md:!text-left">
@@ -143,7 +144,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="px-4 md:px-8 py-16 md:py-36 2xl:py-56">
+      <Section spacing="default">
         <div className="mx-auto max-w-2xl 2xl:max-w-4xl text-center">
           <Eyebrow align="center">About</Eyebrow>
           <Heading size="section" align="center">
@@ -153,7 +154,7 @@ export default function Home() {
             </ScrollTextReveal>
           </Heading>
         </div>
-      </section>
+      </Section>
 
       <ServicesSection />
       <SelectedWorkSection />
