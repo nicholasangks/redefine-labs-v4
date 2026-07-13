@@ -15,38 +15,28 @@ export default function Home() {
   const companies = [
     {
       id: "iq70plus-2",
-      name: "IQ70+",
-      src: "/images/clients/gen.png",
-      width: 120,
-      height: 61,
+      name: "IQ70Plus",
+      src: "/images/clients/genetec.webp",
     },
     {
       id: "genetec",
       name: "Genetec",
-      src: "/images/clients/ydc.png",
-      width: 120,
-      height: 61,
+      src: "/images/clients/yellow-duck-capital.webp",
     },
     {
       id: "iq70plus-1",
       name: "IQ70+",
-      src: "/images/clients/iq70.png",
-      width: 120,
-      height: 61,
+      src: "/images/clients/iq70plus.webp",
     },
     {
-      id: "nova-1",
-      name: "NOVA",
-      src: "/images/clients/ce.png",
-      width: 120,
-      height: 61,
+      id: "climate-energy",
+      name: "Climate Energy",
+      src: "/images/clients/climate-energy.webp",
     },
     {
       id: "nova-2",
       name: "NOVA",
       src: "/images/clients/poly.png",
-      width: 120,
-      height: 61,
     },
   ];
 
@@ -96,9 +86,10 @@ export default function Home() {
 
       <section className="mx-auto flex min-h-screen w-full flex-col pt-20 pb-16 md:pt-22 md:pb-4 px-4 md:px-8 2xl:px-12">
         <div className="grid flex-1 items-center gap-0 md:gap-12 md:py-12 md:grid-cols-[1fr_1fr_1fr] lg:py-0">
-          <div className="order-2 flex flex-col items-center md:items-start gap-4 md:order-none 2xl:pr-20">
+          <div className="order-2 flex flex-col items-center md:items-start gap-4 md:order-none md:max-w-[400px]">
             <Heading as="h1" size="hero" className="!text-center md:!text-left">
-              Software and AI automation, built with taste
+              {/* Software and AI automation, built with taste */}
+              Engineering Software and AI for Business
             </Heading>
  
             <HoverCircleButton href="mailto:hello@redefinelabs.com">
@@ -133,11 +124,9 @@ export default function Home() {
               key={company.id}
               className="flex w-40 flex-none items-center justify-center brightness-0 md:w-42 md:flex-auto xl:w-44 2xl:w-48"
             >
-              <Image
+              <img
                 src={company.src}
                 alt={`${company.name} logo`}
-                width={company.width}
-                height={company.height}
                 className="h-auto w-full object-contain"
               />
             </div>
