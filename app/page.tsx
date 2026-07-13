@@ -60,7 +60,7 @@ export default function Home() {
               aria-label="Main navigation"
               className="hidden flex rounded-full bg-white/45 px-4 backdrop-blur-sm sm:block"
             >
-              <ul className="flex items-center h-9 gap-7 text-sm font-medium text-black/55">
+              <ul className="flex items-center h-9 gap-7 font-medium text-muted">
                 {navItems.map((item) => (
                   <li key={item}>
                     <a
@@ -138,8 +138,8 @@ export default function Home() {
           <Eyebrow align="center">About</Eyebrow>
           <Heading size="section" align="center">
             <ScrollTextReveal>
-              we combine product design, software engineering, and AI to build
-              software that works beautifully.
+              {/* we combine product design, software engineering, and AI to build software that works beautifully. */}
+              We combine product design, software engineering, and AI to build digital products built to scale.
             </ScrollTextReveal>
           </Heading>
         </div>

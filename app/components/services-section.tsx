@@ -10,6 +10,7 @@ import { Eyebrow } from "./typography";
 type Service = {
   title: string;
   description: string;
+  points?: string[];
   image?: string;
   images?: string[];
   video?: string;
@@ -22,7 +23,14 @@ const services: Service[] = [
   {
     title: "Custom Software",
     description:
-      "We work with founders, operators, and growing teams that need thoughtful software, automation, or design systems built with a high level of craft.",
+      "Custom software development tailored to your business processes, from internal systems to customer-facing platforms, built to scale as your business grows.",
+    points: [
+      "Web Applications",
+      "Internal Systems",
+      "Customer Portals",
+      "Enterprise Platforms",
+      "API Integrations",
+    ],
     image: "/images/services/software-1.png",
     mediaBackground: "#ffffff",
     mediaFit: "cover",
@@ -30,7 +38,13 @@ const services: Service[] = [
   {
     title: "AI Solutions",
     description:
-      "We shape interfaces, user journeys, and design systems that make complex software feel focused, credible, and easy to use.",
+      "AI solutions designed to automate workflows, streamline operations, and enhance decision-making. From AI agents to intelligent automation, we integrate AI into everyday business operations.",
+    points: [
+      "AI Agents",
+      "Workflow Automation",
+      "AI Chatbots",
+      "AI Integration",
+    ],
     image: "/images/clients/ydc.png",
     video: "/images/services/ai.mp4",
     mediaBackground: "#323232",
@@ -39,7 +53,12 @@ const services: Service[] = [
   {
     title: "Dashboard & Monitoring",
     description:
-      "We turn raw data into visual systems that are easier to understand, explain, and act on.",
+      "Custom dashboards and monitoring systems that provide real-time visibility across energy, industrial, and business operations, helping teams monitor performance and make informed decisions.",
+    points: [
+      "Operational Dashboards",
+      "Real-time Monitoring",
+      "Data Visualization",
+    ],
     image: "/images/services/ems.png",
     mediaBackground: "#ffffff",
     mediaFit: "cover",
@@ -47,7 +66,12 @@ const services: Service[] = [
   {
     title: "Website Design",
     description:
-      "We develop reliable web applications, portals, and internal tools that match how your business actually works.",
+      "Websites that combine thoughtful design, seamless user experience, and modern development. Built to perform and strengthen your digital presence.",
+    points: [
+      "Corporate Websites",
+      "CMS Integration",
+      "CMS Builds",
+    ],
     image: "/images/services/t1.png",
     images: [
       "/images/services/website-design-1.png",
@@ -60,7 +84,13 @@ const services: Service[] = [
   {
     title: "Product Design",
     description:
-      "We develop reliable web applications, portals, and internal tools that match how your business actually works.",
+      "From research and strategy to interface design, we create digital products that are intuitive, functional, and built around real user needs.",
+    points: [
+      "UX Research",
+      "UI Design",
+      "Design Systems",
+      "Prototyping",
+    ],
     image: "/images/services/ux.png",
     mediaBackground: "#ffffff",
     mediaFit: "cover",
@@ -288,6 +318,13 @@ export function ServicesSection() {
 
               <div>
                 <p>{service.description}</p>
+                {service.points?.length ? (
+                  <ul className="mt-3 space-y-0.5 text-muted-foreground">
+                    {service.points.map((point) => (
+                      <li key={point}>- {point}</li>
+                    ))}
+                  </ul>
+                ) : null}
                 <HoverCircleButton
                   href="mailto:hello@redefinelabs.com"
                   className="mt-3"
@@ -398,6 +435,13 @@ export function ServicesSection() {
               <p>
                 {activeService.description}
               </p>
+              {activeService.points?.length ? (
+                <ul className="mt-4 space-y-0.5 text-muted-foreground">
+                  {activeService.points.map((point) => (
+                    <li key={point}>- {point}</li>
+                  ))}
+                </ul>
+              ) : null}
               <HoverCircleButton
                 href="mailto:hello@redefinelabs.com"
                 className="mt-6"

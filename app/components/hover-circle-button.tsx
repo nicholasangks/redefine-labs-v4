@@ -17,9 +17,9 @@ export function HoverCircleButton({
   return (
     <a
       href={href}
-      className={`group relative inline-flex h-9 items-center overflow-visible rounded-full bg-black px-5 uppercase text-[11px] font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 ${className}`}
+      className={`group relative inline-flex h-9 items-center overflow-visible rounded-full bg-black px-4 uppercase text-[11px] 2xl:text-[11.5px] font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 ${className}`}
     >
-      <span className="relative z-10">
+      <span className="relative mt-[1px] tracking-[0.5px] z-10">
         {children}
       </span>
 

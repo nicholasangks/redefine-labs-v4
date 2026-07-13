@@ -6,6 +6,7 @@
   --surface-muted: #d5c8ba;
   --border: #d9d9d9;
   --muted: #8f8f8f;
+  --muted-foreground: #6f6f6f;
   --brand: #5359a8;
   --primary: #050505;
   --primary-foreground: #ffffff;
@@ -21,6 +22,7 @@
   --color-surface-muted: var(--surface-muted);
   --color-border: var(--border);
   --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-brand: var(--brand);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -34,7 +36,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-site-sans);
   /* font-size: clamp(0.9rem, 0.72vw, 1rem); */
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 .scrollbar-none {
