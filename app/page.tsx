@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import { FaqSection } from "./components/faq-section";
 import { HeroOrb } from "./components/hero-orb";
 import { HoverCircleButton } from "./components/hover-circle-button";
@@ -8,10 +6,20 @@ import { Section } from "./components/section";
 import { Eyebrow, Heading } from "./components/typography";
 import { SelectedWorkSection } from "./components/selected-work-section";
 import { ServicesSection } from "./components/services-section";
+import { createPageMetadata } from "./seo";
+
+const description =
+  "Custom software, applied AI, websites, dashboards, and digital products engineered around how your business actually works.";
+
+export const metadata = createPageMetadata({
+  title: "Redefine Labs | Software & AI Engineering",
+  description,
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   const services = ["Custom Software", "AI Solutions", "Dashboard & Monitoring", "Website Design", "Product Design"];
-  const navItems = ["Services", "About", "Works"];
   const companies = [
     {
       id: "iq70plus-2",
@@ -42,48 +50,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="fixed top-6 left-0 z-50 w-full px-4 md:px-8 2xl:px-12">
-        <div className="mx-auto flex w-full max-w-[1920px] items-center justify-between gap-6">
-          <div className="flex items-center gap-8">
-            <Link href="/" className="text-xl font-medium text-black">
-              <Image
-                src="/images/brand-assets/logo.png"
-                alt="Redefine Labs"
-                width={95}
-                height={95}
-                className="w-8"
-                priority
-              />
-            </Link>
-
-            <nav
-              aria-label="Main navigation"
-              className="hidden flex rounded-full bg-white/45 px-4 backdrop-blur-sm sm:block"
-            >
-              <ul className="flex items-center h-9 gap-7 font-medium text-muted">
-                {navItems.map((item) => (
-                  <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="transition-colors duration-200 hover:text-black"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-
-          <HoverCircleButton
-            href="mailto:hello@redefinelabs.com"
-            className="px-4"
-          >
-            Start a project
-          </HoverCircleButton> 
-        </div>
-      </header>
-
       <section className="mx-auto flex min-h-screen w-full flex-col pt-20 pb-16 md:pt-22 md:pb-4 px-4 md:px-8 2xl:px-12">
         <div className="grid flex-1 items-center gap-0 md:gap-12 md:py-12 md:grid-cols-[1fr_1fr_1fr] lg:py-0">
           <div className="order-2 flex flex-col items-center md:items-start gap-4 md:order-none md:max-w-[400px]">

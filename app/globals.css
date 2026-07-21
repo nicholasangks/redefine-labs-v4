@@ -36,7 +36,8 @@ body {
   color: var(--foreground);
   font-family: var(--font-site-sans);
   /* font-size: clamp(0.9rem, 0.72vw, 1rem); */
-  font-size: 1rem;
+  font-size: 0.938rem;
+  line-height: 1.35;
 }
 
 .scrollbar-none {
@@ -45,6 +46,20 @@ body {
 
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+.floating-cta-glow {
+  box-shadow:
+    -8px 0 14px 0 rgba(145, 187, 252, 0),
+    8px 0 14px 0 rgba(253, 210, 157, 0);
+  transition: box-shadow 420ms ease;
+}
+
+.floating-cta-glow:hover,
+.floating-cta-glow:focus-visible {
+  box-shadow:
+    -8px 0 14px 0 rgba(145, 187, 252, 0.62),
+    8px 0 14px 0 rgba(253, 210, 157, 0.64);
 }
 
 .hero-cta {

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Section } from "./section";
 import { Eyebrow, Heading } from "./typography";
 
@@ -6,17 +5,17 @@ const works = [
   {
     title: "Bess",
     category: "Automation",
-    image: "/images/clients/ems.png",
+    image: "/images/works/ems.webp",
   },
   {
-    title: "Yellow Duck",
+    title: "IQ70Plus",
     category: "Software",
-    image: "/images/clients/iq70plus.png",
+    image: "/images/works/iq70plus.webp",
   },
   {
     title: "Skypoly",
     category: "Data Visualisation",
-    image: "/images/clients/skypoly-2.png",
+    image: "/images/works/skypoly.webp",
   },
 ];
 
@@ -32,12 +31,10 @@ export function SelectedWorkSection() {
         {works.map((work) => (
           <article key={work.title} className="relative group">
             <div className="relative aspect-[16/10] overflow-hidden rounded-lg">
-              <Image
+              <img
                 src={work.image}
                 alt={`${work.title} project preview`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 33vw"
-                className="object-contain transition-transform duration-500 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute bottom-3 left-3 flex">
                 <div

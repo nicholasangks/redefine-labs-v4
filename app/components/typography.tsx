@@ -21,9 +21,9 @@ type EyebrowProps = {
 
 const headingSizeClasses: Record<HeadingSize, string> = {
   // hero: "text-[clamp(2.6rem,3.15vw,3.05rem)] leading-[1]",
-  hero: "text-[1.95rem] md:text-[2.4rem] xl:text-[2.85rem] 2xl:text-[3rem] leading-[1.05]",
+  hero: "text-[1.95rem] md:text-[2.4rem] xl:text-[2.9rem] 2xl:text-[3rem] leading-[1.1] 2xl:leading-[1.05]",
   section: "text-[1.6rem] md:text-[1.95rem] xl:text-[2.2rem] 2xl:text-[2.45rem] leading-[1.2]",
-  card: "text-[clamp(1.5rem,1.8vw,2.35rem)] leading-tight",
+  card: "text-[1.5rem] 2xl:text-[1.8rem]",
   faq: "text-[1.2rem] leading-tight",
 };
 

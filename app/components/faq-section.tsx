@@ -53,15 +53,15 @@ export function FaqSection() {
 
   return (
     <Section id="faq" spacing="default" className="mx-auto">
-      <div className="grid gap-4 lg:gap-0 lg:grid-cols-[0.8fr_1.2fr] py-6 md:py-0 border-y border-black/15">
-        <div className="md:p-8">
+      <div className="grid gap-4 lg:gap-0 lg:grid-cols-[0.8fr_1.2fr] py-6 md:py-0 ">
+        <div className="md:p-8 md:pr-14">
           <Eyebrow>FAQ</Eyebrow>
           <Heading size="section" className="max-w-lg">
             More questions? Contact us if you need further information
           </Heading>
         </div>
 
-        <div className="divide-y divide-border md:border-l md:border-border md:p-8">
+        <div className="divide-y divide-border md:p-8 md:pr-0">
           {faqs.map((faq, index) => {
             const isOpen = index === openIndex;
             const answerId = `faq-answer-${index}`;
@@ -76,9 +76,9 @@ export function FaqSection() {
                   className="flex w-full items-center justify-between text-left"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="pt-1 text-[13px] uppercase text-muted-foreground">
+                    {/* <span className="pt-1 text-[13px] uppercase text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
-                    </span>
+                    </span> */}
                     <Heading as="span" size="faq" className="text-black">
                       {faq.question}
                     </Heading>

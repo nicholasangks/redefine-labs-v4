@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type SectionSpacing = "default" | "none";
+type SectionSpacing = "default" | "compact" | "none";
 
 type SectionProps = {
   id?: string;
@@ -10,7 +10,8 @@ type SectionProps = {
 };
 
 const spacingClasses: Record<SectionSpacing, string> = {
-  default: "py-10 md:py-34",
+  default: "py-10 md:py-30 2xl:py-34",
+  compact: "py-8 md:py-16 2xl:py-20",
   none: "py-0",
 };
 
