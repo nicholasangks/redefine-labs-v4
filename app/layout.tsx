@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "lenis/dist/lenis.css";
 import { AppFooter } from "./components/app-footer";
 import { AppHeader } from "./components/app-header";
@@ -154,6 +155,7 @@ export default function RootLayout({
             </HoverCircleButton>
           </div>
         </LenisProvider>
+        <Analytics />
       </body>
     </html>
   );
