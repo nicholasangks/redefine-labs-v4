@@ -1,4 +1,5 @@
 import { HoverCircleButton } from "../components/hover-circle-button";
+import { ProcessSection } from "../components/process-section";
 import { ScrollTextReveal } from "../components/scroll-text-reveal";
 import { Section } from "../components/section";
 import { Eyebrow, Heading } from "../components/typography";
@@ -31,29 +32,6 @@ const values = [
     description:
       "Client-owned infrastructure, clean architecture, and interfaces people don't need a manual for. Built to outlive any one developer — including us.",
     image: "/images/value-3.webp",
-  },
-];
-
-const processSteps = [
-  {
-    title: "Discover",
-    description:
-      "We start by understanding your business, users, constraints, and the real problem worth solving.",
-  },
-  {
-    title: "Define",
-    description:
-      "We shape the scope, priorities, and execution plan so the direction is clear before work begins.",
-  },
-  {
-    title: "Build",
-    description:
-      "We design and engineer the system with attention to usability, performance, and long-term maintainability.",
-  },
-  {
-    title: "Refine",
-    description:
-      "We iterate based on feedback, improve what matters, and help the product continue to evolve after launch.",
   },
 ];
 
@@ -98,10 +76,10 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section spacing="default" className="mx-auto !pt-20">
+      <Section spacing="default" className="mx-auto !pt-20 !pb-16">
         <Eyebrow>Who we are</Eyebrow>
-        <div className="grid lg:grid-cols-[1fr_1fr] lg:gap-40">
-          <div className="max-w-[600px]">
+        <div className="grid lg:grid-cols-[1fr_1fr] lg:gap-40 2xl:gap-88">
+          <div className="max-w-[600px] 2xl:max-w-2xl">
             <Heading size="section">
               <ScrollTextReveal>
                 Redefine Labs is a software and AI engineering company helping businesses build better digital products.
@@ -110,7 +88,7 @@ export default function AboutPage() {
           </div>
 
           <div className="flex justify-end">
-            <p className="max-w-2xl">
+            <p className="max-w-2xl 2xl:max-w-3xl">
               We believe great software is more than clean code or beautiful interfaces. It should simplify complexity, improve the way people work, and deliver lasting business value.
               Every project begins with understanding your business, users, and objectives before engineering solutions that are scalable, reliable, and built to grow.
             </p>
@@ -118,129 +96,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section spacing="default" className="mx-auto">
-        <div className="mb-4 text-center md:mb-8">
-          <Eyebrow align="center">Our process</Eyebrow>
-          <Heading as="h2" size="section" className="!text-center">
-            How we work
-          </Heading>
-        </div>
-        <div className="space-y-5 md:hidden">
-          {processSteps.map((step, index) => (
-            <article key={step.title} className="flex gap-4">
-              <div className="mt-1 h-8 w-18 rounded-full border border-black/30" />
-              <div className="space-y-0">
-                <Heading as="h3" size="card">
-                  <span className="mb-0.5 block text-[0.55em] font-normal text-muted-foreground">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  {step.title}
-                </Heading>
-                <p className="-mt-1 text-muted-foreground">{step.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="hidden w-full grid-cols-[minmax(0,1fr)_minmax(420px,560px)_minmax(0,1fr)] md:grid">
-          <div className="relative h-[34rem]">
-            <article className="absolute right-0 top-[13rem] flex w-full items-start justify-end">
-              <div className="max-w-[15rem]">
-                <Heading as="h3" size="card" className="-translate-y-1/2">
-                  <span className="mb-0.5 block text-[13px] text-muted-foreground">
-                    02
-                  </span>
-                  {processSteps[1].title}
-                </Heading>
-                <p className="-mt-5 max-w-[15rem] text-muted-foreground">
-                  {processSteps[1].description}
-                </p>
-              </div>
-              <div className="ml-5 h-px w-14 shrink-0 bg-black/30" />
-            </article>
-
-            <article className="absolute right-0 top-[24.5rem] flex w-full items-start justify-end">
-              <div className="max-w-[15rem]">
-                <Heading as="h3" size="card" className="-translate-y-1/2">
-                  <span className="mb-1 block text-[13px] text-muted-foreground">
-                    04
-                  </span>
-                  {processSteps[3].title}
-                </Heading>
-                <p className="-mt-5 max-w-[15rem] text-muted-foreground">
-                  {processSteps[3].description}
-                </p>
-              </div>
-              <div className="ml-5 h-px w-14 shrink-0 bg-black/30" />
-            </article>
-          </div>
-
-          <div className="relative h-[34rem]">
-            <div className="absolute left-1/2 top-0 z-50 h-[13rem] w-px -translate-x-1/2 bg-black/30" />
-            <div className="absolute left-1/2 top-[14.5rem] z-0 h-[14.25rem] w-px -translate-x-1/2 bg-black/30" />
-            {/* <div className="absolute left-1/2 top-[12rem] h-32 w-32 -translate-x-1/2 rounded-full bg-[#91BBFC]/25 blur-[48px]" /> */}
-            {/* <div className="absolute left-1/2 top-[17rem] h-28 w-28 -translate-x-1/2 rounded-full bg-[#FDD29D]/30 blur-[44px]" /> */}
-
-            <div className="absolute left-1/2 top-[3rem] z-40 h-[8.5rem] w-full -translate-x-1/2 rounded-[50%] border border-black/30" />
-            <div className="absolute left-1/2 top-[8.75rem] z-30 h-[8.5rem] w-[88%] -translate-x-1/2 rounded-[50%] bg-[linear-gradient(180deg,rgba(145,187,252,0.3)_0%,rgba(253,210,157,0.35)_100%)] backdrop-blur-xs" />
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              className="absolute left-1/2 top-[14.5rem] z-20 h-[8.5rem] w-[72%] -translate-x-1/2 overflow-visible text-black/30"
-            >
-              <ellipse
-                cx="50"
-                cy="50"
-                rx="49.8"
-                ry="49.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-                strokeDasharray="10 4"
-                vectorEffect="non-scaling-stroke"
-              />
-            </svg>
-            <div className="absolute left-1/2 top-[20.25rem] z-10 h-[8.5rem] w-[58%] -translate-x-1/2 rounded-[50%] border border-black/30" />
-
-            <div className="absolute left-0 top-[13rem] h-px w-[6%] bg-black/30" />
-            <div className="absolute right-0 top-[18.75rem] h-px w-[14%] bg-black/30" />
-            <div className="absolute left-0 top-[24.5rem] h-px w-[21%] bg-black/30" />
-          </div>
-
-          <div className="relative h-[34rem]">
-            <article className="absolute left-0 top-[7.25rem] flex w-full items-start">
-              <div className="mr-5 h-px w-14 shrink-0 bg-black/30" />
-              <div className="max-w-[15rem]">
-                <Heading as="h3" size="card" className="-translate-y-1/2">
-                  <span className="mb-0.5 block text-[13px] text-muted-foreground">
-                    01
-                  </span>
-                  {processSteps[0].title}
-                </Heading>
-                <p className="-mt-5 ml-auto max-w-[15rem] text-muted-foreground">
-                  {processSteps[0].description}
-                </p>
-              </div>
-            </article>
-
-            <article className="absolute left-0 top-[18.75rem] flex w-full items-start">
-              <div className="mr-5 h-px w-14 shrink-0 bg-black/30" />
-              <div className="max-w-[15rem]">
-                <Heading as="h3" size="card" className="-translate-y-1/2">
-                  <span className="mb-0.5 block text-[13px] text-muted-foreground">
-                    03
-                  </span>
-                  {processSteps[2].title}
-                </Heading>
-                <p className="-mt-5 ml-auto max-w-[15rem] text-muted-foreground">
-                  {processSteps[2].description}
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </Section>
+      <ProcessSection />
 
       <Section
         spacing="default"
@@ -281,7 +137,7 @@ export default function AboutPage() {
           Principles that keep our work practical and durable.
         </Heading>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
           {values.map((value) => (
             <article
               key={value.title}
@@ -296,11 +152,11 @@ export default function AboutPage() {
               ) : (
                 <div className="aspect-[4/2] h-auto w-full bg-gray-200" />
               )}
-              <div className="space-y-2 p-5">
+              <div className="grid xl:grid-cols-2 gap-4 p-5">
                 <Heading as="h3" size="card">
                   {value.title}
                 </Heading>
-                <p className="max-w-[15rem] text-muted-foreground">
+                <p className="text-muted-foreground">
                   {value.description}
                 </p>
               </div>

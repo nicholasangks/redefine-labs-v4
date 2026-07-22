@@ -50,7 +50,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <section className="mx-auto flex min-h-screen w-full flex-col pt-20 pb-16 md:pt-22 md:pb-4 px-4 md:px-8 2xl:px-12">
+      <section className="mx-auto flex min-h-screen w-full flex-col pt-20 pb-16 md:pt-0 md:pb-4 px-4 md:px-8 2xl:px-12">
         <div className="grid flex-1 items-center gap-0 md:gap-12 md:py-12 md:grid-cols-[1fr_1fr_1fr] lg:py-0">
           <div className="order-2 flex flex-col items-center md:items-start gap-4 md:order-none md:max-w-[400px]">
             <Heading as="h1" size="hero" className="!text-center md:!text-left">

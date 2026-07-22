@@ -25,7 +25,7 @@ export function AppHeader() {
             aria-label="Main navigation"
             className="hidden rounded-full bg-white/45 px-4 backdrop-blur-sm sm:block"
           >
-            <ul className="flex h-9 items-center gap-7 font-medium text-[.95rem] text-muted">
+            <ul className="flex h-9 items-center gap-7 text-[.9rem] ">
               {navItems.map((item) => (
                 <li key={item.label}>
                   <Link

@@ -9,41 +9,51 @@ import { LenisProvider } from "./lenis-provider";
 import { siteConfig } from "./site-config";
 import "./globals.css";
 
-const fkGroteskNeue = localFont({
+const neueMontreal = localFont({
   src: [
     {
-      path: "../public/fonts/fk-grotesk-neue/FKGroteskNeueTrial-Thin-BF6576818c2a14c.otf",
-      weight: "100",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/fk-grotesk-neue/FKGroteskNeueTrial-Light-BF6576818c0f3e8.otf",
+      path: "../public/fonts/Neue Montreal/NeueMontreal-Light.otf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../public/fonts/fk-grotesk-neue/FKGroteskNeueTrial-Regular-BF6576818c3af74.otf",
+      path: "../public/fonts/Neue Montreal/NeueMontreal-LightItalic.otf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/Neue Montreal/NeueMontreal-Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/fk-grotesk-neue/FKGroteskNeueTrial-Medium-BF6576818c3a00a.otf",
+      path: "../public/fonts/Neue Montreal/NeueMontreal-Italic.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/Neue Montreal/NeueMontreal-Medium.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../public/fonts/fk-grotesk-neue/FKGroteskNeueTrial-Bold-BF6576818bd3700.otf",
+      path: "../public/fonts/Neue Montreal/NeueMontreal-MediumItalic.otf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/Neue Montreal/NeueMontreal-Bold.otf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../public/fonts/fk-grotesk-neue/FKGroteskNeueTrial-Black-BF6576818b4c472.otf",
-      weight: "900",
-      style: "normal",
+      path: "../public/fonts/Neue Montreal/NeueMontreal-BoldItalic.otf",
+      weight: "700",
+      style: "italic",
     },
   ],
   display: "swap",
-  variable: "--font-fk-grotesk-neue",
+  variable: "--font-neue-montreal",
 });
 
 export const metadata: Metadata = {
@@ -127,7 +137,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fkGroteskNeue.variable} h-full antialiased`}
+      className={`${neueMontreal.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body

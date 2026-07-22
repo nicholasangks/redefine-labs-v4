@@ -3,7 +3,6 @@
 import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 
-import { HoverCircleButton } from "./hover-circle-button";
 import { ScrollTextReveal } from "./scroll-text-reveal";
 import { Eyebrow } from "./typography";
 
@@ -310,8 +309,6 @@ export function ServicesSection() {
                 websiteFrameIndex={websiteFrameIndex}
                 className="w-full mb-2"
               />
-
-              {/* <h2 className="text-[clamp(2rem,10vw,3.2rem)] font-medium leading-none"> */}
               <h2 className="text-[1.3rem] font-medium leading-none">
                 {service.title}
               </h2>
@@ -325,12 +322,12 @@ export function ServicesSection() {
                     ))}
                   </ul>
                 ) : null}
-                <HoverCircleButton
+                <a
                   href="mailto:hello@redefinelabs.com"
-                  className="mt-3"
+                  className="relative mt-3 inline-block pb-0.5 before:absolute before:inset-x-0 before:bottom-0 before:h-px before:origin-right before:bg-current before:opacity-30 before:transition-transform before:duration-200 hover:before:scale-x-0 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:delay-200 hover:after:scale-x-100"
                 >
                   Explore more
-                </HoverCircleButton>
+                </a>
               </div>
             </article>
           ))}
@@ -376,7 +373,7 @@ export function ServicesSection() {
                   key={service.title}
                   type="button"
                   onClick={() => scrollToService(index)}
-                  className={`block text-left md:text-[1.4rem] xl:text-[1.6rem] 2xl:text-[1.8rem] font-medium leading-tight transition-colors duration-300 ${
+                  className={`block text-left md:text-[1.5rem] xl:text-[1.7rem] 2xl:text-[1.85rem] font-medium leading-tight transition-colors duration-300 ${
                     isActive
                       ? "text-black"
                       : isPassed
@@ -436,18 +433,18 @@ export function ServicesSection() {
                 {activeService.description}
               </p>
               {activeService.points?.length ? (
-                <ul className="mt-4 space-y-0.5 text-muted-foreground">
+                <ul className="mt-4 space-y-1 text-muted-foreground">
                   {activeService.points.map((point) => (
                     <li key={point}>- {point}</li>
                   ))}
                 </ul>
               ) : null}
-              <HoverCircleButton
+              <a
                 href="mailto:hello@redefinelabs.com"
-                className="mt-6"
+                className="relative mt-6 inline-block pb-0.5 before:absolute before:inset-x-0 before:bottom-0 before:h-px before:origin-right before:bg-current before:transition-transform before:duration-200 hover:before:scale-x-0 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:delay-200 hover:after:scale-x-100"
               >
                 Explore more
-              </HoverCircleButton>
+              </a>
             </div>
           </div>
         </div>

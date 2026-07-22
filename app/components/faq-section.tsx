@@ -54,14 +54,14 @@ export function FaqSection() {
   return (
     <Section id="faq" spacing="default" className="mx-auto">
       <div className="grid gap-4 lg:gap-0 lg:grid-cols-[0.8fr_1.2fr] py-6 md:py-0 ">
-        <div className="md:p-8 md:pr-14">
+        <div className="md:pr-14">
           <Eyebrow>FAQ</Eyebrow>
-          <Heading size="section" className="max-w-lg">
+          <Heading size="section" className="max-w-md">
             More questions? Contact us if you need further information
           </Heading>
         </div>
 
-        <div className="divide-y divide-border md:p-8 md:pr-0">
+        <div className="divide-y divide-border">
           {faqs.map((faq, index) => {
             const isOpen = index === openIndex;
             const answerId = `faq-answer-${index}`;
@@ -100,7 +100,7 @@ export function FaqSection() {
                 >
                   <div className="min-h-0">
                     <div className="">
-                      <p className="mt-3 max-w-xl text-black/65">
+                      <p className="mt-3 max-w-2xl text-muted-foreground">
                         {faq.answer}
                       </p>
                     </div>

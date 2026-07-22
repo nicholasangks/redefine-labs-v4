@@ -21,8 +21,8 @@ type EyebrowProps = {
 
 const headingSizeClasses: Record<HeadingSize, string> = {
   // hero: "text-[clamp(2.6rem,3.15vw,3.05rem)] leading-[1]",
-  hero: "text-[1.95rem] md:text-[2.4rem] xl:text-[2.9rem] 2xl:text-[3rem] leading-[1.1] 2xl:leading-[1.05]",
-  section: "text-[1.6rem] md:text-[1.95rem] xl:text-[2.2rem] 2xl:text-[2.45rem] leading-[1.2]",
+  hero: "text-[1.95rem] md:text-[2.6rem] xl:text-[2.95rem] 2xl:text-[3.2rem] leading-[1.1] 2xl:leading-[1.05]",
+  section: "text-[1.6rem] md:text-[2.2rem] xl:text-[2.3rem] 2xl:text-[2.6rem] leading-[1.2]",
   card: "text-[1.5rem] 2xl:text-[1.8rem]",
   faq: "text-[1.2rem] leading-tight",
 };
@@ -60,7 +60,7 @@ export function Eyebrow({
 
   return (
     <Component
-      className={`mb-3 text-[10px] 2xl:text-[11px] uppercase text-black ${alignmentClasses[align]} ${className}`}
+      className={`mb-3 text-[10px] 2xl:text-[11.5px] tracking-[0.5px] uppercase text-muted-foreground font-medium ${alignmentClasses[align]} ${className}`}
     >
       {children}
     </Component>
