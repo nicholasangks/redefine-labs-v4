@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Redefine Labs",
   legalName: "Redefine Labs Solutions",
+  registrationNumber: "JM1001714-A",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://redefinelabs.com",
   email: "hello@redefinelabs.com",
   phone: "+60123490816",

@@ -5,6 +5,7 @@ import "lenis/dist/lenis.css";
 import { AppFooter } from "./components/app-footer";
 import { AppHeader } from "./components/app-header";
 import { HoverCircleButton } from "./components/hover-circle-button";
+import { services } from "./data/services";
 import { LenisProvider } from "./lenis-provider";
 import { siteConfig } from "./site-config";
 import "./globals.css";
@@ -107,6 +108,29 @@ const structuredData = {
       description: siteConfig.description,
       email: siteConfig.email,
       telephone: siteConfig.phone,
+      identifier: {
+        "@type": "PropertyValue",
+        propertyID: "SSM registration number",
+        value: siteConfig.registrationNumber,
+      },
+      knowsAbout: services.flatMap((service) => [
+        service.title,
+        ...(service.points ?? []),
+      ]),
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Digital product engineering services",
+        itemListElement: services.map((service, index) => ({
+          "@type": "Offer",
+          position: index + 1,
+          itemOffered: {
+            "@type": "Service",
+            "@id": `${siteConfig.url}/#service-${index + 1}`,
+            name: service.title,
+            description: service.description,
+          },
+        })),
+      },
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "sales",

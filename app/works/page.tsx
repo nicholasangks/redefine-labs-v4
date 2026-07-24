@@ -3,12 +3,18 @@ import { Section } from "../components/section";
 import { Eyebrow, Heading } from "../components/typography";
 import { createPageMetadata } from "../seo";
 
-export const metadata = createPageMetadata({
-  title: "Selected Work",
-  description:
-    "Redefine Labs is currently updating its portfolio. Contact us to request relevant work and case studies.",
-  path: "/works",
-});
+export const metadata = {
+  ...createPageMetadata({
+    title: "Selected Work",
+    description:
+      "Redefine Labs is currently updating its portfolio. Contact us to request relevant work and case studies.",
+    path: "/works",
+  }),
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 const portfolioRequestUrl =
   "https://wa.me/60123490816?text=Hi%20Redefine%20Labs%2C%20I%27d%20like%20to%20view%20your%20portfolio.";

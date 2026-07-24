@@ -1,9 +1,11 @@
 import { HoverCircleButton } from "../components/hover-circle-button";
+import { JsonLd } from "../components/json-ld";
 import { ProcessSection } from "../components/process-section";
 import { ScrollTextReveal } from "../components/scroll-text-reveal";
 import { Section } from "../components/section";
 import { Eyebrow, Heading } from "../components/typography";
 import { createPageMetadata } from "../seo";
+import { siteConfig } from "../site-config";
 
 const description =
   "Learn how Redefine Labs combines product thinking, software engineering, and practical AI to build digital products that work for businesses and their users.";
@@ -13,6 +15,25 @@ export const metadata = createPageMetadata({
   description,
   path: "/about",
 });
+
+const aboutPageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${siteConfig.url}/about#webpage`,
+  url: `${siteConfig.url}/about`,
+  name: "About Redefine Labs",
+  description,
+  isPartOf: {
+    "@id": `${siteConfig.url}/#website`,
+  },
+  about: {
+    "@id": `${siteConfig.url}/#organization`,
+  },
+  mainEntity: {
+    "@id": `${siteConfig.url}/#organization`,
+  },
+  inLanguage: "en",
+};
 
 const values = [
   {
@@ -38,6 +59,7 @@ const values = [
 export default function AboutPage() {
   return (
     <main>
+      <JsonLd data={aboutPageStructuredData} />
       <Section
         spacing="none"
         className="relative h-[700px] mx-auto flex flex-col items-center justify-center"

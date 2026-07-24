@@ -1,12 +1,14 @@
 import { FaqSection } from "./components/faq-section";
 import { HeroOrb } from "./components/hero-orb";
 import { HoverCircleButton } from "./components/hover-circle-button";
+import { JsonLd } from "./components/json-ld";
 import { ScrollTextReveal } from "./components/scroll-text-reveal";
 import { Section } from "./components/section";
 import { Eyebrow, Heading } from "./components/typography";
 import { SelectedWorkSection } from "./components/selected-work-section";
 import { ServicesSection } from "./components/services-section";
 import { createPageMetadata } from "./seo";
+import { siteConfig } from "./site-config";
 
 const description =
   "Custom software, applied AI, websites, dashboards, and digital products engineered around how your business actually works.";
@@ -18,8 +20,31 @@ export const metadata = createPageMetadata({
   absoluteTitle: true,
 });
 
+const homepageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${siteConfig.url}/#webpage`,
+  url: siteConfig.url,
+  name: "Redefine Labs | Software & AI Engineering",
+  description,
+  isPartOf: {
+    "@id": `${siteConfig.url}/#website`,
+  },
+  about: {
+    "@id": `${siteConfig.url}/#organization`,
+  },
+  mainEntity: {
+    "@id": `${siteConfig.url}/#organization`,
+  },
+  hasPart: [
+    { "@id": `${siteConfig.url}/#services` },
+    { "@id": `${siteConfig.url}/#faq` },
+  ],
+  inLanguage: "en",
+};
+
 export default function Home() {
-  const services = ["Custom Software", "AI Solutions", "Dashboard & Monitoring", "Website Design", "Product Design"];
+  const services = ["Custom Software", "AI Solutions", "Energy Management Systems", "Website Design", "Product Design"];
   const companies = [
     {
       id: "iq70plus-2",
@@ -50,6 +75,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <JsonLd data={homepageStructuredData} />
       <section className="mx-auto flex min-h-screen w-full flex-col pt-20 pb-16 md:pt-0 md:pb-4 px-4 md:px-8 2xl:px-12">
         <div className="grid flex-1 items-center gap-0 md:gap-12 md:py-12 md:grid-cols-[1fr_1fr_1fr] lg:py-0">
           <div className="order-2 flex flex-col items-center md:items-start gap-4 md:order-none md:max-w-[400px]">
