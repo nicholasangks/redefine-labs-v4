@@ -101,8 +101,8 @@ export function HeroOrb() {
       <div className="absolute h-px w-[calc(100%+5rem)] md:w-[calc(100%+10rem)] -rotate-45 bg-[#D5D5D5]"></div>
 
       <div className="flex h-auto w-full aspect-square items-center justify-center rounded-full border border-[#D5D5D5]">
-        <div className="relative h-auto w-[60%] aspect-square -rotate-45 rounded-full border border-[#D5D5D5]">
-          <div className="absolute top-1/2 -left-1 h-2 w-2 -translate-y-1/2 rounded-full bg-[#D5D5D5]"></div>
+        <div className="relative h-auto w-[60%] aspect-square -rotate-45 rounded-full before:pointer-events-none before:absolute before:inset-0 before:rounded-full border-[1.5px] border-dashed border-[#D5D5D5]">
+          <div className="absolute top-1/2 -left-1 h-2 w-2 -translate-y-1/2 rounded-full bg-black"></div>
           <div className="absolute top-1/2 -right-1 h-2 w-2 -translate-y-1/2 rounded-full border border-[#D5D5D5] bg-white"></div>
         </div>
       </div>

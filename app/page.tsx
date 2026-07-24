@@ -1,5 +1,6 @@
 import { FaqSection } from "./components/faq-section";
 import { HeroOrb } from "./components/hero-orb";
+import { HeroServicesRotator } from "./components/hero-services-rotator";
 import { HoverCircleButton } from "./components/hover-circle-button";
 import { JsonLd } from "./components/json-ld";
 import { ScrollTextReveal } from "./components/scroll-text-reveal";
@@ -44,7 +45,7 @@ const homepageStructuredData = {
 };
 
 export default function Home() {
-  const services = ["Custom Software", "AI Solutions", "Energy Management Systems", "Website Design", "Product Design"];
+  const services = ["Custom Software", "AI Solutions", "Energy Management Systems", "AI Automation", "Website Design", "Product Design"];
   const companies = [
     {
       id: "iq70plus-2",
@@ -93,21 +94,7 @@ export default function Home() {
             <HeroOrb />
           </div>
 
-          <div className="services-marquee order-3 mx-auto h-8 w-full overflow-hidden text-center text-[1rem] md:text-[1.1rem] xl:text-[1.2rem] font-medium md:order-none md:h-32 md:w-auto">
-            <div className="services-marquee-track">
-              <ul className="services-marquee-list">
-                {services.map((service) => (
-                  <li key={service}>{service}</li>
-                ))}
-              </ul>
-
-              <ul className="services-marquee-list" aria-hidden="true">
-                {services.map((service) => (
-                  <li key={`${service}-loop`}>{service}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <HeroServicesRotator services={services} />
         </div>
 
         <div className="scrollbar-none flex items-end gap-10 overflow-x-auto px-4 pb-2 text-center md:grid md:grid-cols-3 md:overflow-visible md:px-12 lg:grid-cols-6">
